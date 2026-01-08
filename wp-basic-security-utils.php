@@ -27,8 +27,9 @@ remove_action( 'wp_head', 'wp_generator' );
  * Hide login error details
  */
 function wbsu_hide_login_errors() {
-    return 'Invalid login credentials.';
+    return __( 'Invalid login credentials.', 'wp-basic-security-utils' );
 }
+
 add_filter( 'login_errors', 'wbsu_hide_login_errors' );
 
 /**
