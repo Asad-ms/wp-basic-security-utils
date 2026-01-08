@@ -35,6 +35,10 @@ add_filter( 'login_errors', 'wbsu_hide_login_errors' );
  * Add basic security headers
  */
 function wbsu_add_security_headers() {
+    if ( headers_sent() ) {
+        return;
+    }
+
     header( 'X-Content-Type-Options: nosniff' );
     header( 'X-Frame-Options: SAMEORIGIN' );
     header( 'X-XSS-Protection: 1; mode=block' );
